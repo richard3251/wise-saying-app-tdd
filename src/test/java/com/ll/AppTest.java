@@ -43,7 +43,7 @@ public class AppTest {
 
     public static String run(String input) {
         input = input.stripIndent().trim() + "\n종료";
-        Scanner scanner = TestUtil.getScanner(input);
+        Scanner scanner = new Scanner(input);
         ByteArrayOutputStream outputStream = TestUtil.setOutToByteArray();
 
         App app = new App(scanner);
@@ -55,6 +55,7 @@ public class AppTest {
 
         return output;
     }
+
 
 
 

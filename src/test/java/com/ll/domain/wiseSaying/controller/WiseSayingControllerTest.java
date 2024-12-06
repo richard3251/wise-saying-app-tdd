@@ -80,5 +80,25 @@ public class WiseSayingControllerTest {
 
     }
 
+    @Test
+    @DisplayName("목록 명령어 : 입력된 명언들을 출력한다.")
+    public void t8() {
+        String output = AppTest.run("""
+                등록
+                현재를 사랑하라.
+                작자미상
+                등록
+                과거에 집착하지 마라.
+                작자미상
+                삭제?id=1
+                목록
+                """);
+
+        assertThat(output)
+                .contains("2 / 작자미상 / 과거에 집착하지 마라.")
+                .doesNotContain("1 / 작자미상 / 현재를 사랑하라.");
+
+    }
+
 
 }
